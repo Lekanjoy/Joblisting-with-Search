@@ -7,28 +7,22 @@ searchBar.addEventListener('keyup', (e) => {
 
    const filteredJobs = jobLists.filter(job => {
 
-    //    jobLists.forEach(lang => {
-    //     let lang1 = lang.languages
-    //     console.log(lang1[1]);
-
-    //    })
-  
+    const jobLangString = job.languages.toString().toLowerCase();
+    const jobToolString = job.tools.toString().toLowerCase();
 
      return (
        job.role.toLowerCase().includes(searchString) ||
        job.level.toLowerCase().includes(searchString) ||
-       job.location.toLowerCase().includes(searchString)
-    //    job.languages[0].toLowerCase().includes(searchString) ||
-    //    job.languages[1].toLowerCase().includes(searchString) ||
-    //    job.languages[2].toLowerCase().includes(searchString)
+       job.location.toLowerCase().includes(searchString) ||
+       jobLangString.includes(searchString) ||
+       jobToolString.includes(searchString)
      ); 
 
    });
 
+    //Displaying only jobs that matches the search text (filtered)
     displayJobLists(filteredJobs);
 });
-
-
 
 
 async function loadJobLists() {
@@ -36,42 +30,40 @@ async function loadJobLists() {
 try {
     const response = await fetch("data.json");
     jobLists = await response.json();
+
+    // Displaying the data from the API
     displayJobLists(jobLists); 
-
-
-
-    
+   
 } catch(err) {
         console.error(`AN ERROR OCCURRED: ${err}`);
       };
       
+    //   const url = 'data.json';
 
+    //   let response = await fetch(url);
+    //   let data = await response.json();
+
+    //    displayJobLists(data)    
 };
    
- loadJobLists();//The json data is automatically loaded as window is opened
+ loadJobLists();//Loading the API data by calling the function.
 
 function displayJobLists(jobs) {
 
     const htmlString = jobs.map(job => {
+
 
         if(job.new === true){
             job.new = 'New'
         };
         
         if (job.new === false) {
-          job.new = ''
-        };
+            job.new = '';
 
-        if (job.featured === true) {
-          job.featured = "Featured";
-        };
-
-        if (job.featured === false) {
-          job.featured = "";
         };
 
 
-        return  `
+        return `
 
         <div class="cards">
         <div class="details">
@@ -104,6 +96,8 @@ function displayJobLists(jobs) {
           <p>${job.languages[0]}</p>
           <p>${job.languages[1]}</p>
           <p>${job.languages[2]}</p>
+          <p>${job.tools[0]}</p>
+          <p>${job.tools[1]}</p>
         </div>
 
       </div>
