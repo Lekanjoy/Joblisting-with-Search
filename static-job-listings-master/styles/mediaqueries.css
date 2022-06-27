@@ -1,3 +1,46 @@
-@media(min-width:580px){
-    
+@media(min-width:768px) {
+    main{
+        padding: 2rem;
+    }
+    main .cards {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .cards .roles {
+        grid-template-columns: repeat(5, 1fr);
+        place-content: center;
+        width: 50%;
+
+    }
+
+    .roles p {
+        height: 20px;
+        font-size: .8rem;
+    }
+
+    .cards .details {
+        border-bottom: none;
+        display: flex;
+    }
+
+    .details .logo {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 1rem;
+        top: 0;
+        width: 80px;
+
+    }
+    .details  .preferences{
+        margin-bottom: 0;
+    }
+
+    .preferences ul li {
+        margin-right: 1rem;
+        white-space: nowrap;
+    }
+
 }
