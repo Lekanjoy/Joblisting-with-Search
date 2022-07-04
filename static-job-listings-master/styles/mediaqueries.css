@@ -1,7 +1,16 @@
 @media(min-width:768px) {
-    main{
+    header input {
+        width: 5%;
+    }
+
+    header input:focus {
+        width: 30%;
+    }
+
+    main {
         padding: 2rem;
     }
+
     main .cards {
         display: flex;
         justify-content: space-between;
@@ -34,12 +43,13 @@
         width: 80px;
 
     }
-    .details  .preferences{
+
+    .details .preferences {
         margin-bottom: 0;
     }
 
     .preferences ul li {
-        margin-right: 1rem;
+        margin-right: 2rem;
         white-space: nowrap;
     }
 

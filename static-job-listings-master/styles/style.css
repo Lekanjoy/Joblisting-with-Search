@@ -64,14 +64,17 @@ header input{
     border-radius: 10px;
     outline: none;
     border: 1px solid var(--LightGrayishCyan2);
-    text-align: center;
+    /* text-align: center; */
     transition: .4s ease-in-out;
     cursor: pointer;
-    font-size: 1.3rem;
+    font-size: 1rem;
     background-color: var(--LightGrayishCyan2);
 }
 header input:focus{
-    width: 100%;
+    width: 50%;
+}
+::placeholder{
+    color: var(--DesaturatedDarkCyan);
 }
 main{
     padding: 1rem;
@@ -106,9 +109,9 @@ main .cards{
 .roles p{
     color: var(--DesaturatedDarkCyan);
     background-color: rgba(138, 180, 248, .2);
-    padding: .3rem .4rem;
+    padding: .3rem .2rem;
     font-weight: var(--FW-700);
-    font-size: 1rem;
+    font-size: .8rem;
     text-align: center;
     border-radius: 5px;
 }
@@ -178,6 +181,6 @@ text-transform: uppercase;
 }
 .preferences ul li{
 color: var(--DarkGrayishCyan);
-margin-right: -2.3rem;
+margin-right: -5.3rem;
 }
 
